@@ -1,0 +1,10 @@
+.list-group{
+    margin: 1rem 0;
+}
+.item-list .list-group-item{
+    transition: .4s;
+    cursor: pointer;
+}
+.item-list .list-group-item:hover{
+    background-color: #444;
+}

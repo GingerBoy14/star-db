@@ -1,0 +1,13 @@
+.error-indicator{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: auto;
+    /*#d2691e*/
+    color:#5386c1;
+}
+
+.error-indicator img{
+    height: 200px;
+
+}

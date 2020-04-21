@@ -1,0 +1,17 @@
+.logo{
+    margin-top: .5rem;
+    padding-left: .5rem;
+    margin-right: 1rem;
+}
+
+.nav-item{
+    color: #418e75 !important;
+    padding-left: 1rem;
+    margin-left: 1.25rem;
+    border-radius: 3px;
+    transition: .4s;
+    font-weight: bold;
+}
+.nav-item:hover{
+    background-color: #444;
+}

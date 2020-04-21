@@ -1,0 +1,57 @@
+.person-detail{
+    display: flex;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    flex-direction: row;
+    border: 1px solid #444;
+    padding: 1rem;
+}
+
+.person-detail .person-image{
+    width: 30%;
+    height: 30%;
+    border-radius: 10px;
+}
+.person-detail .card-body{
+    padding: 0 1rem !important;
+}
+@media only screen and (max-width: 425px) {
+    .person-detail{
+        flex-direction: column;
+    }
+    .person-detail .person-image{
+        width: 100%;
+        height: 100%;
+        margin: auto;
+        margin-bottom: 1rem;
+    }
+}
+@media only screen and (max-width: 375px) {
+    .person-detail{
+        flex-direction: column;
+    }
+    .person-detail .person-image{
+        width: 100%;
+        height: 100%;
+        margin: auto;
+        margin-bottom: 1rem;
+    }
+}
+@media only screen and (max-width: 325px) {
+   .person-detail{
+       flex-direction: column;
+   }
+    .person-detail .person-image{
+        width: 100%;
+        height: 100%;
+        margin: auto;
+        margin-bottom: 1rem;
+    }
+}
+
+.person-detail .list-group-item{
+    padding: .25rem;
+}
+.person-detail .list-group-item .term{
+    margin-right: .5rem;
+}
