@@ -2,8 +2,7 @@ import React, {Component} from "react";
 
 import AppHeader from "../AppHeader";
 import RandomPlanet from "../RandomPlanet";
-import ItemList from "../ItemList";
-import PersonDetails from "../details/PersonDetails";
+import Page from "../Page";
 
 
 export default class App extends Component{
@@ -13,14 +12,7 @@ export default class App extends Component{
             <div className="container">
                 <AppHeader/>
                 <RandomPlanet/>
-                <div className="row">
-                    <div className="col-md-6">
-                        <ItemList/>
-                    </div>
-                    <div className="col-md-6">
-                        <PersonDetails/>
-                    </div>
-                </div>
+                <Page/>
             </div>
         );
     };
