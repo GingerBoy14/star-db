@@ -55,3 +55,8 @@
 .person-detail .list-group-item .term{
     margin-right: .5rem;
 }
+.select-message{
+    font-weight: bold;
+    color: #418e75;
+    margin:0 auto;
+}
