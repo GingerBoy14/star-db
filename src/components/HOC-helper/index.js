@@ -1,4 +1,6 @@
-import  withData  from "./withData"
-import  ItemDetails  from "./ItemDetails"
-import  withSwapiService from "./withSwapiService";
-export  { withData, ItemDetails, withSwapiService};
+import withListData  from "./withListData"
+import withDetailsData  from "./withDetailsData"
+import withSwapiService from "./withSwapiService";
+import compose from "./compose";
+import withChildFunction from "./withChildFunction"
+export  { withListData, withDetailsData, withSwapiService, compose, withChildFunction };

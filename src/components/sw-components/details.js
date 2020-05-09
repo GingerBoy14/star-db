@@ -1,15 +1,11 @@
 import React from 'react';
 import ItemView, { Record } from "../ItemView";
-import { ItemDetails } from "../HOC-helper";
-import SwapiService from "../services/SwapiService";
+import {
+    withDetailsData,
+    withSwapiService,
+    withChildFunction,
+    compose} from "../HOC-helper";
 
-const swapiService = new SwapiService();
-
-const {
-    getPerson,
-    getStarship,
-    getPlanet
-} = swapiService;
 
 const personField = (
     <React.Fragment>
@@ -30,11 +26,38 @@ const starShipField = (
         <Record field="costInCredits" label="Cost"/>
     </React.Fragment>);
 
-const PersonDetails = ItemDetails(ItemView, getPerson, personField);
+const mapPersonMethodsToProps = (swapiService) => {
+    return{
+        getData: swapiService.getPerson
+    };
+};
+const mapPlanetMethodsToProps = (swapiService) => {
+    return{
+        getData: swapiService.getPlanet
+    };
+};
+const mapStarshipsMethodsToProps = (swapiService) => {
+    return{
+        getData: swapiService.getStarship
+    };
+};
+const PersonDetails = compose(
+                         withSwapiService(mapPersonMethodsToProps),
+                         withDetailsData,
+                         withChildFunction(personField)
+                      )(ItemView);
 
-const PlanetDetails = ItemDetails(ItemView, getPlanet, planetField);
-const StarshipDetails = ItemDetails(ItemView, getStarship, starShipField);
+const PlanetDetails =  compose(
+                          withSwapiService(mapPlanetMethodsToProps),
+                          withDetailsData,
+                          withChildFunction(planetField)
+                       )(ItemView);
 
+const StarshipDetails = compose(
+                           withSwapiService(mapStarshipsMethodsToProps),
+                           withDetailsData,
+                           withChildFunction(starShipField)
+                        )(ItemView);
 export {
     PersonDetails,
     PlanetDetails,

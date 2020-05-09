@@ -2,27 +2,28 @@ import React, {Component} from "react";
 import ErrorIndicator from "../Error/ErrorIndicator";
 import Spinner from "../Spinner";
 
-const ItemDetails = (View, getData, fields) => {
+const withDetailsData = (View) => {
     return class extends Component{
 
         state = {
             item: null,
-            loading: true
+            loading: true,
+            error: false
         };
 
         componentDidMount() {
-            this.updateItem();
+            this.update();
         }
 
         componentDidUpdate(prevProps) {
             if (this.props.itemId !== prevProps.itemId){
                 this.setState({loading:true});
-                this.updateItem();
+                this.update();
             }
         }
 
-        updateItem(){
-            const { itemId } = this.props;
+        update(){
+            const { itemId, getData } = this.props;
             if (!itemId){
                 return;
             }
@@ -47,7 +48,7 @@ const ItemDetails = (View, getData, fields) => {
             const spinner = loading && item ? <Spinner/> : null;
             const content = hasData ?
                 <View item={item}>
-                    {fields}
+                    {this.props.children}
                 </View> : null;
             const select = !item&&!error ? <span className="select-message">Select a person from a list</span> : null;
             return(
@@ -62,6 +63,6 @@ const ItemDetails = (View, getData, fields) => {
     }
 };
 
-export default ItemDetails;
+export default withDetailsData;
 
 
