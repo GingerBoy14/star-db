@@ -1,3 +1,4 @@
 import  withData  from "./withData"
-import  dataDetails  from "./dataDetails"
-export  { withData, dataDetails };
+import  ItemDetails  from "./ItemDetails"
+import  withSwapiService from "./withSwapiService";
+export  { withData, ItemDetails, withSwapiService};

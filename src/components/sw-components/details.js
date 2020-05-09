@@ -1,6 +1,6 @@
 import React from 'react';
-import ItemView, {Record} from "../ItemView/ItemView";
-import dataDetails from "../HOC-helper/dataDetails";
+import ItemView, { Record } from "../ItemView";
+import { ItemDetails } from "../HOC-helper";
 import SwapiService from "../services/SwapiService";
 
 const swapiService = new SwapiService();
@@ -30,10 +30,10 @@ const starShipField = (
         <Record field="costInCredits" label="Cost"/>
     </React.Fragment>);
 
-const PersonDetails = dataDetails(ItemView, getPerson,personField);
+const PersonDetails = ItemDetails(ItemView, getPerson, personField);
 
-const PlanetDetails = dataDetails(ItemView, getPlanet,planetField);
-const StarshipDetails = dataDetails(ItemView, getStarship,starShipField);
+const PlanetDetails = ItemDetails(ItemView, getPlanet, planetField);
+const StarshipDetails = ItemDetails(ItemView, getStarship, starShipField);
 
 export {
     PersonDetails,

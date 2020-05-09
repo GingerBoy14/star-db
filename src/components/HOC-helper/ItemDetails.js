@@ -2,7 +2,7 @@ import React, {Component} from "react";
 import ErrorIndicator from "../Error/ErrorIndicator";
 import Spinner from "../Spinner";
 
-const dataDetails = (View, getData, fields) => {
+const ItemDetails = (View, getData, fields) => {
     return class extends Component{
 
         state = {
@@ -11,7 +11,6 @@ const dataDetails = (View, getData, fields) => {
         };
 
         componentDidMount() {
-
             this.updateItem();
         }
 
@@ -63,6 +62,6 @@ const dataDetails = (View, getData, fields) => {
     }
 };
 
-export default dataDetails;
+export default ItemDetails;
 
 

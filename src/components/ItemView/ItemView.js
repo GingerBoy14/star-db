@@ -2,7 +2,7 @@ import React from "react";
 
 import "./ItemView.css"
 
-export const Record = ({item, field, label}) =>{
+const Record = ({item, field, label}) =>{
   return(
       <li className="list-group-item">
           <span className="term">{label}</span>
@@ -31,4 +31,5 @@ const ItemView = ({item,children:{props:{children}}}) =>{
         </React.Fragment>
         );
 };
+export {Record}
 export default ItemView;
