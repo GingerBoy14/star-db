@@ -1,26 +1,20 @@
-import React, {Component} from "react";
+import React from "react";
 import { PersonDetails, PersonList} from "../sw-components";
 import Row from "../Row";
 import ErrorBoundry from "../Error/ErrorBoundry";
-export default class PeoplePage extends Component{
-    state = {
-        selectedItem: null
-    };
-    onItemSelected = (selectedItem) =>{
-        this.setState({ selectedItem });
-    };
-
-    render() {
+import { withRouter } from "react-router-dom";
+const  PeoplePage = ({ history, match }) => {
         const personList = (
             <ErrorBoundry>
                 <PersonList
-                    onItemSelected={this.onItemSelected}/>
+                    onItemSelected={(id)=>history.push(id)}/>
             </ErrorBoundry>
         );
+        const { id } = match.params;
         const personDetail = (
             <ErrorBoundry>
                 <PersonDetails
-                    itemId={this.state.selectedItem}/>
+                    itemId={id}/>
             </ErrorBoundry>
         );
         return (
@@ -28,6 +22,7 @@ export default class PeoplePage extends Component{
                 left={personList}
                 right={personDetail}/>
         );
-    }
+    };
 
-}
+export default withRouter(PeoplePage);
+
