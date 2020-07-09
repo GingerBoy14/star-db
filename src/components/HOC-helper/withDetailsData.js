@@ -16,15 +16,18 @@ const withDetailsData = (View) => {
         }
 
         componentDidUpdate(prevProps) {
-            if (this.props.itemId !== prevProps.itemId){
-                this.setState({loading:true});
-                this.update();
-            }
+                if (this.props.itemId !== prevProps.itemId){
+                    this.update();
+                }
+
         }
 
         update(){
+            this.setState({loading:true});
+
             const { itemId, getData } = this.props;
             if (!itemId){
+                this.setState({item:null});
                 return;
             }
             getData(itemId)
@@ -50,7 +53,9 @@ const withDetailsData = (View) => {
                 <View item={item}>
                     {this.props.children}
                 </View> : null;
-            const select = !item&&!error ? <span className="select-message">Select a person from a list</span> : null;
+            const select = !item && !error ? <span className="select-message">Select a person from a list</span> : null;
+
+
             return(
                 <div className="person-detail card">
                     {spinner}
